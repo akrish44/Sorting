@@ -7,23 +7,41 @@ public class Bubble {
     }
 
     private static void swap(int[] arr) {
-        int length = arr.length;
-        int oneLess = length - 1;
-        for(int j=0; j<length-1; j++) { 
-            for(int k=0; k<oneLess-j; k++) { 
-                if(arr[k] > arr[k+1]) { 
-                    int temp = arr[k]; 
-                    arr[k] = arr[k+1];
-                    arr[k+1] = temp;
-                }
+    int temp = 0;
+    for (int i = 0; i < arr.length; i++) {
+        for (int j = 1; j < (arr.length - i); j++) {
+            if (arr[j - 1] > arr[j]) {
+                temp = arr[j - 1];
+                arr[j - 1] = arr[j];
+                arr[j] = temp;
             }
-        print(arr);
+
+        }
+        if (isSorted(arr)) {
+            break;
+        } else {
+            print(arr);
+        }
+        
+
         }
     }
 
+    public static boolean isSorted(int[] arr) {
+        for (int i=0; i<arr.length-1; i++) {
+            if (!(arr[i]<arr[i+1])) {
+               return false;
+            }
+        }
+        return true;
+    }
+
+
     private static void print(int[] arr) {
-        for(int i=0; i<arr.length; i++) {
-            System.out.print(arr[i]+ " ");
+        for(int k=0; k<arr.length; k++) {
+            
+            System.out.print(arr[k]+ " ");
+        
         }
         System.out.println("\n");
     }
