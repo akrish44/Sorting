@@ -9,18 +9,21 @@ public class Insertion {
     }
  
     public static void insertionSort(int arr[]) {
-        for (int j = 1; j < arr.length; j++) {
-            int max = arr[j];
-            int i = j-1;
-            while ( (i > -1) && (arr[i] > max) ) {
-                arr[i+1] = arr[i];
-                i--;
-            }
-            arr[i+1] = max;
-            print(arr);
-        }
+        for (int i = 1; i < arr.length; i++) {
+		  int next = arr[i];
+
+		  int j = i;
+
+		  while (j > 0 && next < arr[j - 1]) {
+		   arr[j] = arr[j - 1];
+		   j--;
+		  }
+
+		  arr[j] = next;
+	    print(arr);
+	    }
     }
-        private static void print(int[] arr) {
+        public static void print(int[] arr) {
          
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
